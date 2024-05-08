@@ -1,0 +1,15 @@
+<form>
+<div >
+    <label for="nomcategorie" class="form-label">Nom Catégorie</label>
+    <input type="text" class="form-control" id="nomcategorie"  name="nomcategorie" [(ngModel)]="newcategory().nomcategorie">
+  </div>
+  <div >
+    <label for="imagecategorie" class="form-label">Image Catégorie</label>
+    <input type="text" class="form-control" id="imagecategorie"  name="imagecategorie" [(ngModel)]="newcategory().imagecategorie">
+  </div>
+  <div >
+    <button class="btn btn-primary btn-sm" (click)="createCategory()">Enregistrer</button>&nbsp;
+    <button class="btn btn-danger btn-sm" routerLink="/affichcat">Annuler</button>
+  </div>
+</form>
+

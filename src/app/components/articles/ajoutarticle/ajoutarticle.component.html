@@ -1,0 +1,43 @@
+<form>
+    <div >
+        <label for="reference" class="form-label">Référence</label>
+        <input type="text" class="form-control" id="reference"  name="reference" [(ngModel)]="newarticle().reference">
+      </div>
+      <div >
+        <label for="designation" class="form-label">Désignation</label>
+        <input type="text" class="form-control" id="designation"  name="designation" [(ngModel)]="newarticle().designation">
+      </div>
+      <div >
+        <label for="qtestock" class="form-label">Stock</label>
+        <input type="text" class="form-control" id="qtestock"  name="qtestock" [(ngModel)]="newarticle().qtestock">
+      </div>
+      <div >
+        <label for="prix" class="form-label">Prix</label>
+        <input type="text" class="form-control" id="prix"  name="prix" [(ngModel)]="newarticle().prix">
+      </div>
+      <div >
+        <label for="marque" class="form-label">Marque</label>
+        <input type="text" class="form-control" id="marque"  name="marque" [(ngModel)]="newarticle().marque">
+      </div>
+      <div >
+        <label for="imageart" class="form-label">Image</label>
+        <input type="text" class="form-control" id="imageart"  name="imageart" [(ngModel)]="newarticle().imageart">
+      </div>
+      <div>
+        <label for="scategorieID" class="form-label">S/Catégorie</label>
+      <select class="form-select form-select-lg mb-3" name="scategorieID" [(ngModel)]="newarticle().scategorieID">
+        
+        <option selected>Select</option>
+        @for (item of scategories(); track item._id) {
+        <option value={{item._id}}>{{item.nomscategorie}}</option>
+        }
+      </select>
+      </div>
+   
+      <div >
+        <button class="btn btn-primary btn-sm" (click)="ajoutarticle()">Enregistrer</button>&nbsp;
+        <button class="btn btn-danger btn-sm" routerLink="/afficharticles">Annuler</button>
+      </div>
+    </form>
+    
+    

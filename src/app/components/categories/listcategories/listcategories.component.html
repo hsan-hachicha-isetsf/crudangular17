@@ -1,0 +1,30 @@
+<a class="btn btn-success btn-sm" routerLink="/ajoutcat">Nouveau</a>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+    
+    <th>Nom catégorie</th>
+    <th>Image Catégorie</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+    @for (item of categ(); track item._id) {
+        <tr>
+            
+            <td>{{item.nomcategorie}}</td>
+            <td><img src={{item.imagecategorie}} width="80" height="70"/></td>
+
+            <td>
+                <a class="btn btn-warning btn-sm" [routerLink]="['/updatecat/',item._id]">Update</a>&nbsp;
+                <button class="btn btn-danger btn-sm" (click)="deletecategorie(item)">Delete</button>
+            
+            
+            </td>
+
+        </tr>
+    }
+</tbody>
+
+</table>
+
