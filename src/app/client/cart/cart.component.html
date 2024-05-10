@@ -1,0 +1,105 @@
+<div class="cart-container">
+    <h2>{{ pageTitle }}</h2>
+    <div class="row">
+  
+        <!-- Display the cart items -->
+        @if(cartItems().length) {
+        <div class="cart-items">
+  
+            <div class="titles">
+            <h3 class="product-title">Product</h3>
+            <h3 class="price">Price</h3>
+            <h3 class="quantity">Quantity</h3>
+            <h3 class="price">LineTotal</h3>
+            </div>
+        
+            @for(item of cartItems(); track item){
+            <div class="cart-item">
+                <div class="cart-product">
+                    <img [src]="item.article.imageart" [alt]="item.article.designation"/>
+                    <div>
+                        <h3>{{ item.article.designation }}</h3>
+                        <p>{{item.article.reference}}</p>
+                        <button class="btn btn-warning" (click)="removeFromCart(item)">
+                          <i class="bi bi-trash-fill" style="color:red"></i>
+                        </button>
+                    </div>
+                </div> 
+                <div class="cart-product-price"> 
+                    {{ item.article.prix }} TND
+                </div>
+  
+     <div class="cart-product-quantity">
+      <button  
+      (click)="onQuantitySelectedMinus(item, item.quantity)">
+      -
+      </button>
+     {{item.quantity}}
+     <button  
+      (click)="onQuantitySelectedPlus(item, item.quantity)">
+     +
+      </button>
+      </div>
+      <div class="cart-product-price"> 
+      <b>  {{item.quantity * item.article.prix!}} TND </b>
+    </div>
+    </div>
+            }
+        </div>
+        }
+        @else {
+        <div class="cart-empty">
+            No items in cart
+        </div>
+        }
+    </div>
+  </div>
+  
+  <!-- Display totals -->
+  <div>
+    @if(cartItems().length) {
+    <div class="count">
+        <div class="row">
+            <div class="col-md-3">Subtotal:</div>
+            <div class="col-md-3" style="text-align:right">
+                {{ subTotal()  }} TND
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">Delivery:</div>
+            @if(deliveryFee()) {
+            <div class="col-md-3" style="text-align:right">
+                {{ deliveryFee()  }} TND
+            </div>
+            }
+            @if(!deliveryFee()) {
+            <div class="col-md-3" style="text-align:right;color:red">
+                Free
+            </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-3">Estimated Tax:</div>
+            <div class="col-md-3" style="text-align:right">
+                {{ tax() }} TND
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><b>Total:</b></div>
+            <div class="col-md-3" style="text-align:right">
+                <b>{{ totalPrice()  }} TND</b>
+            </div>
+        </div>
+    </div>
+    <div class="start-shopping">
+      <span  (click)="ClearCart()">Clear Cart</span>
+    </div>
+    }
+  </div>
+  <div  class="cart-summary">
+  <div class="start-shopping">
+    <a routerLink="/articlescard">Continue Shopping</a>
+  </div>
+  
+  </div>
+  

@@ -1,0 +1,19 @@
+<div class="container">
+<div class="row card-deck  gap-3">
+@for (item of articles(); track item._id) {
+<div class="card" style="width: 18rem;">
+    <img src={{item.imageart}} class="card-img-top" alt="..." width="80" height="250">
+    <div class="card-body">
+      <h5 class="card-title">{{item.reference}}</h5>
+      <p class="card-text">{{item.designation?.substring(0,20)}}</p>
+      <h6>Prix : {{item.prix}} TND</h6>
+  
+      <div class="text-center">
+    <button class="btn btn-primary" (click)="addTocard(item)">Add to Card</button>
+</div>
+</div>
+    </div>
+
+}
+</div>
+</div>

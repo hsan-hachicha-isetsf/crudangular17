@@ -8,6 +8,8 @@ import { AjoutscategComponent } from './components/scategories/ajoutscateg/ajout
 import { ModifscategComponent } from './components/scategories/modifscateg/modifscateg.component';
 import { AjoutarticleComponent } from './components/articles/ajoutarticle/ajoutarticle.component';
 import { ModifarticleComponent } from './components/articles/modifarticle/modifarticle.component';
+import { ListarticlescardComponent } from './client/listarticlescard/listarticlescard.component';
+import { CartComponent } from './client/cart/cart.component';
 
 export const routes: Routes = [
     { path: 'affichcat', component: ListcategoriesComponent },
@@ -20,6 +22,8 @@ export const routes: Routes = [
   
     { path: 'afficharticles', component: ListarticlesComponent } ,
     { path: 'addarticle', component: AjoutarticleComponent } ,
-    { path: 'updatearticle/:id', component: ModifarticleComponent } 
+    { path: 'updatearticle/:id', component: ModifarticleComponent } ,
+    {path:'articlescard',component:ListarticlescardComponent},
+    {path:"cartart",component:CartComponent}
 
 ];
